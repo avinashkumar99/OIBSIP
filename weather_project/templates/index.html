@@ -1,0 +1,71 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/style.css" rel="stylesheet">
+
+    <title>Weather Data</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid py-2">
+          <a class="navbar-brand fw-bold fs-1 mx-4" style="font-family: 'Georgia';" href="{% url 'frontpage' %}">Mausam</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+            <form class="d-flex ms-auto px-4" method="post">
+                {% csrf_token %}
+              <input class="form-control me-2" name="city" type="search" placeholder="Search Your City here" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+
+      <section class="section">
+        <div class="container">
+            <div class="row mx-auto border">
+
+                </div> -->
+                <div class="col-lg-4 mt-3 bg-light mx-auto">
+                    
+                    <div class="card mx-auto card-class bg-light mb-3" >
+                        
+                        {% if country_code %}
+                        <div class="container">
+                            
+                        </div>
+                        
+                        <div class="card-body">
+                          <h5 class="card-title text-center fw-bold fs-1" style="font-family:'Century Gothic','sans-serif'; border-bottom: 0.3rem solid rgb(227, 14, 127);">Weather Report</h5>
+                          <div class="city-class"><img src= {{ icon_link }} class="card-img border img-class ms-2" alt="image"><span class="mx-4">{{city}}</span> </div>
+                          <div class="label-class">Country Code : <span class="data-class">{{country_code}}</span>
+                          <div class="label-class">Temp : <span class="data-class">{{temp}}&deg;F</span></div>
+                          <div class="label-class">Minimum Temp : <span class="data-class">{{min_temp }}&deg;F</span></div>
+                          <div class="label-class">Maximum Temp : <span class="data-class">{{max_temp}}&deg;F</span></div>
+                          <div class="label-class">Feel's Like : <span class="data-class">{{feels_like}}&deg;F</span></div>
+                          <div class="label-class">Visibility : <span class="data-class">{{visibility}} m</span></div>
+
+                          <div class="label-class">Air pressure : <span class="data-class">{{pressure}}</span></div>
+                          <div class="label-class">Humidity : <span class="data-class">{{humidity}} %</span></div>
+                        </div>
+                        {% else %}
+                        <img src="/static/images/weather-image.png" class="card-img-top" alt="image">
+                        <div class="card-body">
+                            <h2 class="card-title text-center">Weather Card</h2>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+</html>

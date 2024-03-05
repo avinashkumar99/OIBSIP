@@ -1,0 +1,35 @@
+.label-class
+{
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: brown;
+}
+
+.data-class
+{
+    font-size: 1.3rem;
+    font-weight: 400;
+    background-color: yellow;
+}
+
+.card-class
+{
+    box-shadow: 0 5px 8px 0 black;
+    width: 25rem;
+}
+.card-class:hover
+{
+    box-shadow: 0 8px 15px 0 black;
+}
+.img-class
+{
+    height: 8rem;
+    width: auto;
+}
+.city-class
+{
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: end;
+    display: inline-block;
+}
